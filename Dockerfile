@@ -15,11 +15,5 @@ CMD dotnet run --no-launch-profile
 FROM dhi.io/aspnetcore:10 AS final
 WORKDIR /app
 COPY --from=build /app .
-ARG APP_UID=10001
-RUN useradd \
-    --no-create-home \
-    --shell /sbin/nologin \
-    --uid ${APP_UID} \
-    appuser
-USER appuser
+USER app
 ENTRYPOINT ["dotnet", "myWebApp.dll"]
