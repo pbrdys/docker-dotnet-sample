@@ -59,7 +59,7 @@ RUN adduser \
     --home "/nonexistent" \
     --shell "/sbin/nologin" \
     --no-create-home \
-    --uid "${UID}" \
+    --uid "${APP_UID}" \
     appuser
 USER appuser
 
